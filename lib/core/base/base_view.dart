@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
+import '../values/app_colors.dart';
 import 'base_controller.dart';
 
 abstract class BaseView<Controller extends BaseController>
@@ -52,7 +53,7 @@ abstract class BaseView<Controller extends BaseController>
   }
 
   Color pageBackgroundColor() {
-    return Colors.white;
+    return AppColors.blackBackground;
   }
 
   Color statusBarColor() {

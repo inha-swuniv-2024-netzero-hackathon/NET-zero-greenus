@@ -23,6 +23,9 @@ class MainController extends GetxController
   @override
   void onInit() {
     super.onInit();
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 150), vsync: this);
+    animationController.forward(from: 0.0);
   }
 
   /// bottom navigation을 주어진 인덱스로 변환한다.

@@ -5,6 +5,9 @@ abstract class Routes {
 
   static const INIT = '/init';
   static const MAIN = '/main';
+  static const HOME = '/home';
+  static const REQUEST = '/request';
+  static const REQUEST_CHAT = '/request/detail';
 
 
 }

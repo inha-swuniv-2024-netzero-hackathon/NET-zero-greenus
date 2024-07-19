@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/preferred_size.dart';
 import 'package:get/get.dart';
+
 import 'package:greenus/core/base/base_view.dart';
 import 'package:greenus/modules/init/controllers/init_controller.dart';
 
 import '../../../routes/app_pages.dart';
 
-class InitView extends BaseView<RequestController> {
-  const InitView({super.key});
+class RequestView extends BaseView<RequestController> {
+  const RequestView({super.key});
 
   @override
   PreferredSize? appBar(BuildContext context) {
@@ -20,7 +19,11 @@ class InitView extends BaseView<RequestController> {
     return Container(
       child: Column(
         children: [
-          Text('init vie'),
+          Text('request'),
+          TextButton(onPressed: () {
+            Get.toNamed(Routes.REQUEST_CHAT);
+
+          }, child: Text('button')),
         ],
       ),
     );

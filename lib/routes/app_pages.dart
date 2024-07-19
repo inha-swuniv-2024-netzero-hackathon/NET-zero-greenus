@@ -5,6 +5,9 @@ import 'package:greenus/modules/init/pages/init_view.dart';
 import 'package:greenus/modules/main/bindings/main_binding.dart';
 import 'package:greenus/modules/main/pages/main_view.dart';
 
+import '../modules/request_chat/bindings/request_chat_binding.dart';
+import '../modules/request_chat/pages/request_chat_view.dart';
+
 part 'app_routes.dart';
 
 class AppPages {
@@ -20,7 +23,16 @@ class AppPages {
       name: Routes.MAIN,
       binding: MainBinding(),
       page: () => const MainView(),
+    ),
+    GetPage(
+      name: Routes.REQUEST_CHAT,
+      binding: RequestChatBinding(),
+      page: () => const RequestChatView(),
+    ),
+    GetPage(
+      name: Routes.MAIN,
+      binding: MainBinding(),
+      page: () => const MainView(),
     )
   ];
-
 }

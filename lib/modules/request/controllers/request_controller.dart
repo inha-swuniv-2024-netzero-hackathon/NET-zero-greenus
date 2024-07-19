@@ -8,12 +8,7 @@ class RequestController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      initialize();
-    });
   }
 
-  void initialize() {
-    Get.offAllNamed(Routes.MAIN);
-  }
+  void initialize() {}
 }
