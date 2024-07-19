@@ -7,7 +7,7 @@ import 'package:greenus/modules/init/controllers/init_controller.dart';
 
 import '../../../routes/app_pages.dart';
 
-class InitView extends BaseView<RequestController> {
+class InitView extends BaseView<InitController> {
   const InitView({super.key});
 
   @override

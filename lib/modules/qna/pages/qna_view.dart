@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:greenus/core/base/base_view.dart';
-import 'package:greenus/modules/init/controllers/init_controller.dart';
-import 'package:greenus/modules/request_chat/controllers/request_chat_controller.dart';
+import 'package:greenus/modules/qna/controllers/qna_controller.dart';
 
 import '../../../core/components/hover_button.dart';
 import '../../../core/values/app_colors.dart';
@@ -11,8 +10,8 @@ import '../../../core/values/app_text_styles.dart';
 import '../../../routes/app_pages.dart';
 import '../components/chat_bubble.dart';
 
-class RequestChatView extends BaseView<RequestChatController> {
-  const RequestChatView({super.key});
+class QnaView extends BaseView<QnaController> {
+  const QnaView({super.key});
 
   @override
   PreferredSize? appBar(BuildContext context) {
@@ -25,7 +24,7 @@ class RequestChatView extends BaseView<RequestChatController> {
       onTap: FocusScope.of(context).unfocus,
       child: Stack(
         children: [
-          _background(),
+          // _background(),
           Positioned.fill(
             child: Column(
               children: [
@@ -126,7 +125,7 @@ class RequestChatView extends BaseView<RequestChatController> {
             child: Text(
               text,
               style: AppTextStyles.semi16Style
-                  .copyWith(color: AppColors.background),
+                  .copyWith(color: AppColors.white),
             ),
           ),
         ),

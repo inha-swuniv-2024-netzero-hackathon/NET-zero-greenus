@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/preferred_size.dart';
 import 'package:get/get.dart';
-import 'package:greenus/core/base/base_view.dart';
 import 'package:greenus/modules/home/pages/home_view.dart';
-import 'package:greenus/modules/init/controllers/init_controller.dart';
 import 'package:greenus/modules/main/controllers/main_controller.dart';
-import 'package:greenus/modules/request/pages/request_view.dart';
+import 'package:greenus/modules/planet/pages/planet_view.dart';
 
+import '../../../core/values/app_colors.dart';
 import '../../../core/values/asset_paths.dart';
+import '../../qna/pages/qna_view.dart';
 
 class MainView extends GetView<MainController> {
   const MainView({super.key});
@@ -16,7 +14,7 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.background,
       bottomNavigationBar: bottomNavigationBar(),
       body: Obx(
         () => FadeTransition(
@@ -30,9 +28,8 @@ class MainView extends GetView<MainController> {
               index: controller.currentIndex.value,
               children: const [
                 HomeView(),
-                RequestView(),
-                // LibraryView(),
-                // ProfileView(),
+                QnaView(),
+                PlanetView(),
               ],
             ),
           ),
@@ -45,15 +42,15 @@ class MainView extends GetView<MainController> {
     return Obx(() => Theme(
           data: ThemeData(
             splashColor: Colors.transparent,
-            highlightColor: Colors.white.withOpacity(0.5),
+            highlightColor: Colors.black.withOpacity(0.5),
           ),
           child: Padding(
             padding: const EdgeInsets.only(top: 5.0),
             child: BottomNavigationBar(
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.white,
                 currentIndex: controller.currentIndex.value,
                 onTap: controller.changeBottomNav,
-                selectedItemColor: Colors.white,
+                selectedItemColor: Colors.black,
                 unselectedItemColor: Colors.grey,
                 enableFeedback: true,
                 selectedFontSize: 10,
@@ -68,12 +65,13 @@ class MainView extends GetView<MainController> {
                   BottomNavigationBarItem(
                     icon: bottomNavIconItem(AssetPath.homeOutlined),
                     activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
-                    label: '의뢰',
+                    label: '질문',
                   ),
-                  // BottomNavigationBarItem(
-                  //     icon: bottomNavIconItem(AssetPath.homeOutlined),
-                  //     activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
-                  //     label: '교환'),
+                  BottomNavigationBarItem(
+                    icon: bottomNavIconItem(AssetPath.homeOutlined),
+                    activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
+                    label: '행성',
+                  ),
                 ]),
           ),
         ));

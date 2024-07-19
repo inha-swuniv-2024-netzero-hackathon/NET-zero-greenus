@@ -9,4 +9,6 @@ class AssetPath {
   static const String hairOptionBg = 'assets/background/option_hair_bg.png';
   static const String lensOptionBg = 'assets/background/option_lens_bg.png';
   static const String makeupOptionBg = 'assets/background/option_makeup_bg.png';
+
+  static const String dummy = 'assets/icons/option_dummy.png';
 }

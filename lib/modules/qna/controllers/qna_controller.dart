@@ -5,7 +5,7 @@ import 'package:greenus/core/base/base_controller.dart';
 import '../../../core/values/asset_paths.dart';
 import '../models/chat_bubble_item_model.dart';
 
-class RequestChatController extends BaseController {
+class QnaController extends BaseController {
   ScrollController scrollController = ScrollController();
   RxList<ChatBubbleItemModel> chatBubbleItemList = RxList.empty();
   final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();

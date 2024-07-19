@@ -1,14 +1,14 @@
 import 'package:flutter/painting.dart';
 
 abstract class AppColors {
-  static const Color defaultColor = Color(0xff2f4bf5);
+  static const Color defaultColor = Color(0xff18cb8c);
   static const Color darkLine = Color(0xff49454F);
   static const Color transparent = Color(0x00000000);
 
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff131619);
   static const Color blackNeutral = Color(0xff272727);
-  static const Color blackBackground = Color(0xff0D0D0D);
+  static const Color background = Color(0xffFFFFFF);
   static const Color blackDim = Color(0x66131619);
   static const Color blackLight = Color(0xff1A1A1A);
   // static const Color blackLightBox = Color(0xff212121);
@@ -19,6 +19,7 @@ abstract class AppColors {
   static const Color charcoal = Color(0xff454F5D);
   static const Color darkGrey = Color(0xff5C6370);
   // static const Color midGrey = Color(0xff8D94A0);
+  static const Color lightGrey = Color(0xffececec);
   static const Color grey = Color(0xffcbcbcb);
   static const Color midGrey = Color(0xff6c6c6c);
   static const Color placeHolder = Color(0xffB0BAC8);
@@ -27,7 +28,6 @@ abstract class AppColors {
   static const Color linePrimary = Color(0xffE6EAED);
   static const Color darkModeWhite = Color(0xfffafafa);
   static const Color backgroundBehance = Color(0xffFBFBFB);
-  static const Color background = Color(0xfff2f4f6);
   static const Color bannerDecoration = Color(0xff90896C);
   static const Color popularDecoration = Color(0xff473F41);
 
@@ -116,7 +116,7 @@ abstract class SmitzLinearGradient {
       end: Alignment.bottomCenter);
 
   static const LinearGradient libraryBottomDim = LinearGradient(
-      colors: [AppColors.transparent, AppColors.blackBackground],
+      colors: [AppColors.transparent, AppColors.background],
       stops: [0.0, 0.9],
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter);
