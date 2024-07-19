@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:greenus/core/base/base_view.dart';
+import 'package:greenus/modules/home/components/app_bar.dart';
 import 'package:greenus/modules/qna/controllers/qna_controller.dart';
 
 import '../../../core/components/hover_button.dart';
@@ -15,7 +16,13 @@ class QnaView extends BaseView<QnaController> {
 
   @override
   PreferredSize? appBar(BuildContext context) {
-    return null;
+    return CustomAppBar(
+      title: '',
+      leadingWidget: Text(
+        '문의',
+        style: AppTextStyles.semi22Style,
+      ),
+    );
   }
 
   @override
@@ -24,11 +31,9 @@ class QnaView extends BaseView<QnaController> {
       onTap: FocusScope.of(context).unfocus,
       child: Stack(
         children: [
-          // _background(),
           Positioned.fill(
             child: Column(
               children: [
-                const SizedBox(height: 90),
                 Expanded(
                   child: AnimatedList(
                     key: controller.listKey,
@@ -66,28 +71,6 @@ class QnaView extends BaseView<QnaController> {
     );
   }
 
-  Widget _background() => Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(
-                'assets/images/mvp/background/gradient_background.png',
-              ),
-              fit: BoxFit.cover,
-            )),
-          ),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              // BottomDim(
-              //   reverse: true,
-              // ),
-            ],
-          ),
-        ],
-      );
-
   Widget _optionList() => GetBuilder(
       init: controller,
       builder: (context) {
@@ -124,8 +107,7 @@ class QnaView extends BaseView<QnaController> {
             ),
             child: Text(
               text,
-              style: AppTextStyles.semi16Style
-                  .copyWith(color: AppColors.white),
+              style: AppTextStyles.semi16Style.copyWith(color: AppColors.white),
             ),
           ),
         ),
@@ -168,15 +150,15 @@ class QnaView extends BaseView<QnaController> {
   Widget _chatInput() => GetBuilder(
       init: controller,
       builder: (context) {
-        if (!controller.isActivateChat) {
-          return const SizedBox();
-        }
+        // if (!controller.isActivateChat) {
+        //   return const SizedBox();
+        // }
         return Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              color: AppColors.blackLightHover,
+              // color: AppColors.blackLightHover,
               child: Row(
                 children: [
                   Expanded(
@@ -189,13 +171,15 @@ class QnaView extends BaseView<QnaController> {
                         style: AppTextStyles.reg14Style,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: AppColors.blackLightHover,
+                          fillColor: AppColors.lightGrey,
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              borderSide: const BorderSide(
-                                color: AppColors.grey,
-                                width: 1.5,
-                              )),
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none,
+                          ),
                           contentPadding:
                               const EdgeInsets.symmetric(horizontal: 15),
                         ),
@@ -217,7 +201,7 @@ class QnaView extends BaseView<QnaController> {
                       width: 40,
                       color: controller.isChatEmpty
                           ? AppColors.grey
-                          : const Color(0xdb9172f3),
+                          : AppColors.defaultColor,
                     ),
                   ),
                 ],

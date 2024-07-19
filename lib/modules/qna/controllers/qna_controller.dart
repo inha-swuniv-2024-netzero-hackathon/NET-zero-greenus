@@ -205,19 +205,19 @@ class QnaController extends BaseController {
 
   appendStartOptions() async {
     await appendChatBubble(
-        ChatBubbleItemModel(isMe: false, message: '나만의 리폼 제품을 제작해보세요!'));
+        ChatBubbleItemModel(isMe: false, message: '안녕하세요 AI 그리너스 비서 그린이 입니다.'));
     await appendChatBubble(
       ChatBubbleItemModel(
         isMe: false,
-        message: '어떤 종류의 제품을 원하시나요?',
-        optionContentList: [
-          OptionContentModel(
-            content: 'A',
-          ),
-          OptionContentModel(
-            content: 'B',
-          ),
-        ],
+        message: '적금 관련 궁금한 사항과 환경 관련 트렌드 등에 관해 질문해보세요!',
+        // optionContentList: [
+        //   OptionContentModel(
+        //     content: 'A',
+        //   ),
+        //   OptionContentModel(
+        //     content: 'B',
+        //   ),
+        // ],
       ),
     );
     isShowOption = true;
@@ -245,22 +245,28 @@ class QnaController extends BaseController {
   }
 
   void submitChat(String value) {
-    if (currentOptionType == CustomOptionType.email) {
-      if (_validateEmail(value)) {
-        appendChatBubble(ChatBubbleItemModel(isMe: true, message: value),
-            tryNext: true);
-      } else {
-        appendChatBubble(ChatBubbleItemModel(isMe: true, message: value));
-        appendChatBubble(
-            ChatBubbleItemModel(isMe: false, message: '잘못된 이메일 형식'));
-      }
-      textEditingController.clear();
-    } else {
-      appendChatBubble(ChatBubbleItemModel(isMe: true, message: value),
-          tryNext: true);
-      textEditingController.clear();
-    }
+    appendChatBubble(ChatBubbleItemModel(isMe: true, message: value));
+    appendChatBubble(ChatBubbleItemModel(isMe: false, message: '대답'));
+    textEditingController.clear();
+    isChatEmpty = true;
+
+    // if (currentOptionType == CustomOptionType.email) {
+    //   if (_validateEmail(value)) {
+    //     appendChatBubble(ChatBubbleItemModel(isMe: true, message: value),
+    //         tryNext: true);
+    //   } else {
+    //     appendChatBubble(ChatBubbleItemModel(isMe: true, message: value));
+    //     appendChatBubble(
+    //         ChatBubbleItemModel(isMe: false, message: '잘못된 이메일 형식'));
+    //   }
+    //   textEditingController.clear();
+    // } else {
+    //   appendChatBubble(ChatBubbleItemModel(isMe: true, message: value),
+    //       tryNext: true);
+    //   textEditingController.clear();
+    // }
     focusNode.unfocus();
+    update();
   }
 
   bool _validateEmail(String? value) {

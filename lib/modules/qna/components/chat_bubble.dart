@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:greenus/core/values/asset_paths.dart';
 
 import '../../../core/values/app_colors.dart';
 import '../../../core/values/app_text_styles.dart';
@@ -49,15 +50,7 @@ class ChatBubble extends StatelessWidget {
                     maxWidth: Get.width * 0.75,
                   ),
                   decoration: BoxDecoration(
-                    color: isMe
-                        ? AppColors.defaultColor
-                        : AppColors.blackLightHover,
-                    gradient: isMe
-                        ? const LinearGradient(colors: [
-                            Color(0xFF533BC7),
-                            Color(0xDB9172F3),
-                          ])
-                        : null,
+                    color: isMe ? AppColors.defaultColor.withOpacity(0.5) : AppColors.lightGrey,
                     borderRadius: BorderRadius.only(
                       topRight: isMe
                           ? const Radius.circular(2.0)
@@ -96,13 +89,9 @@ class ChatBubble extends StatelessWidget {
                         child: Text(
                           message,
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight:
-                                isMe ? FontWeight.w500 : FontWeight.w600,
-                            color: isMe
-                                ? AppColors.darkModeWhite
-                                : AppColors.white,
-                            letterSpacing: -0.2,
+                            fontSize: 14,
+                            color: isMe ? AppColors.black : AppColors.black,
+                            letterSpacing: -0.3,
                           ),
                         ),
                       ),
@@ -111,27 +100,27 @@ class ChatBubble extends StatelessWidget {
                 ),
               ],
             ),
-            if (optionImageList != null &&
-                optionImageList!
-                    .any((element) => element.backgroundUrl != null))
-              Padding(
-                padding: const EdgeInsets.only(left: 50.0, top: 10),
-                child: Wrap(
-                  children: optionImageList!
-                      .map((e) => _backgroundItem(e.backgroundUrl!))
-                      .toList(),
-                ),
-              ),
-            if (optionImageList != null &&
-                optionImageList!.any((element) => element.iconUrl != null))
-              Padding(
-                padding: const EdgeInsets.only(left: 50.0, top: 10),
-                child: Wrap(
-                  children: optionImageList!
-                      .map((e) => _iconItem(e.iconUrl!, e.backgroundColor!))
-                      .toList(),
-                ),
-              )
+            // if (optionImageList != null &&
+            //     optionImageList!
+            //         .any((element) => element.backgroundUrl != null))
+            //   Padding(
+            //     padding: const EdgeInsets.only(left: 50.0, top: 10),
+            //     child: Wrap(
+            //       children: optionImageList!
+            //           .map((e) => _backgroundItem(e.backgroundUrl!))
+            //           .toList(),
+            //     ),
+            //   ),
+            // if (optionImageList != null &&
+            //     optionImageList!.any((element) => element.iconUrl != null))
+            //   Padding(
+            //     padding: const EdgeInsets.only(left: 50.0, top: 10),
+            //     child: Wrap(
+            //       children: optionImageList!
+            //           .map((e) => _iconItem(e.iconUrl!, e.backgroundColor!))
+            //           .toList(),
+            //     ),
+            //   )
           ],
         ),
       ),
@@ -216,8 +205,8 @@ class ChatBubble extends StatelessWidget {
         ),
         child: const CircleAvatar(
           radius: 18,
-          backgroundImage: AssetImage(
-              'assets/images/examples/winter_christmas_example_1.png'),
+          backgroundColor: AppColors.defaultColor,
+          backgroundImage: AssetImage(AssetPath.dummy),
         ),
       );
 }
