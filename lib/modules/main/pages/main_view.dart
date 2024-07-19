@@ -28,7 +28,6 @@ class MainView extends GetView<MainController> {
               index: controller.currentIndex.value,
               children: const [
                 HomeView(),
-                QnaView(),
                 PlanetView(),
               ],
             ),
@@ -65,12 +64,7 @@ class MainView extends GetView<MainController> {
                   BottomNavigationBarItem(
                     icon: bottomNavIconItem(AssetPath.homeOutlined),
                     activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
-                    label: '질문',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: bottomNavIconItem(AssetPath.homeOutlined),
-                    activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
-                    label: '행성',
+                    label: '플래닛',
                   ),
                 ]),
           ),

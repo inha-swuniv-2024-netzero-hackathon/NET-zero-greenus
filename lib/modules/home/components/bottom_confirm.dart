@@ -16,7 +16,7 @@ class BottomConfirmWidget extends StatelessWidget {
       required this.condition,
       required this.text,
       required this.onTap,
-      this.padding = const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+      this.padding = const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       this.isLoading = false});
 
   @override
@@ -53,7 +53,8 @@ class BottomConfirmWidget extends StatelessWidget {
                         )
                       : Text(
                           text,
-                          style: AppTextStyles.semi16Style,
+                          style: AppTextStyles.semi16Style
+                              .copyWith(color: Colors.white),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),

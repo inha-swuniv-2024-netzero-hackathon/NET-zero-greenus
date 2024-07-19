@@ -8,6 +8,7 @@ import 'package:greenus/modules/home/components/app_bar.dart';
 import 'package:greenus/modules/home/components/mission_info.dart';
 import 'package:greenus/modules/home/components/saving_info.dart';
 import 'package:greenus/modules/home/controllers/home_controller.dart';
+import 'package:greenus/routes/app_pages.dart';
 
 class HomeView extends BaseView<HomeController> {
   const HomeView({super.key});
@@ -17,6 +18,13 @@ class HomeView extends BaseView<HomeController> {
     return CustomAppBar(
       title: '',
       leadingWidget: Image.asset(AssetPath.dummy),
+      actions: [
+        IconButton(
+            onPressed: () {
+              Get.toNamed(Routes.QNA);
+            },
+            icon: Icon(Icons.chat)),
+      ],
     );
   }
 

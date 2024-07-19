@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:greenus/core/values/app_colors.dart';
 import 'package:greenus/core/values/app_text_styles.dart';
 import 'package:greenus/core/values/asset_paths.dart';
+
+import '../../../routes/app_pages.dart';
 
 class MissionInfo extends StatelessWidget {
   const MissionInfo({super.key});
@@ -27,30 +30,36 @@ class MissionInfo extends StatelessWidget {
   }
 
   Widget _missionItem() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      decoration: BoxDecoration(
-          color: AppColors.darkGrey, borderRadius: BorderRadius.circular(15.0)),
-      alignment: Alignment.center,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Image.asset(
-                AssetPath.dummy,
-                width: 40,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Text(
-            '쓰레기 줍기',
-            style: AppTextStyles.med13Style.copyWith(color: AppColors.white),
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(Routes.MISSION_GUIDE, arguments: {'title': 'title'});
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        decoration: BoxDecoration(
+            color: AppColors.darkGrey,
+            borderRadius: BorderRadius.circular(15.0)),
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Image.asset(
+                  AssetPath.dummy,
+                  width: 40,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              '쓰레기 줍기',
+              style: AppTextStyles.med13Style.copyWith(color: AppColors.white),
+            ),
+          ],
+        ),
       ),
     );
   }
