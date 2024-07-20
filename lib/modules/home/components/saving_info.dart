@@ -29,7 +29,7 @@ class SavingInfo extends StatelessWidget {
         color: AppColors.lightGrey,
         borderRadius: BorderRadius.circular(15.0),
       ),
-      child: isActivateSaving ? _savingRegistered() : _noneSaving(),
+      child: savingsData['saving'] != null ? _savingRegistered() : _noneSaving(),
     );
   }
 

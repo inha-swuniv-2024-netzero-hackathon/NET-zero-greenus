@@ -25,16 +25,30 @@ class HomeController extends BaseController {
       isBindingComplete = true;
       update();
     });
-
   }
 
-  void connectSaving() {
-    Get.dialog(
-      CustomAlertDialog(AlertOption(
-          title: '적금이 연동되었어요!', content: null, isShowCancelPressed: false)),
-    );
-    isActivateSaving = true;
-    update();
+  void connectSaving() async {
+    var url = Uri.parse('http://43.203.144.204:8080/users/1/savings');
+    var headers = {'Content-Type': 'application/json'};
+    var body = json.encode({
+      "bank": "그린은행",
+      "savingsName": "그린적금",
+      "interestRate": 1.8,
+      "balance": 100000,
+    });
+
+    var response = await http.post(url, headers: headers, body: body);
+
+    print(response.statusCode);
+    if (response.statusCode == 201) {
+      await getSavings();
+      Get.dialog(
+        CustomAlertDialog(AlertOption(
+            title: '적금이 연동되었어요!', content: null, isShowCancelPressed: false)),
+      );
+      isActivateSaving = true;
+      update();
+    }
   }
 
   Future<void> getSavings() async {
@@ -51,5 +65,10 @@ class HomeController extends BaseController {
     var data = json.decode(utf8.decode(response.bodyBytes));
     missionData = data;
     print(missionData);
+  }
+
+  void onRefresh() async {
+    await getMissions();
+    update();
   }
 }

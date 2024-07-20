@@ -1,0 +1,193 @@
+body {
+    font-family: "arial", "sans-serif";
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    position: relative;
+}
+
+.upTicket {
+    position: absolute;
+    top: 3vh;
+    left: 4vw;
+    background-color: white;
+    border: 2px solid #3ac16b;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 5vw;
+    height: 3vh;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#leaf {
+    width: 3vw;
+    height: 3vw;
+    object-fit: cover;
+    right: 1vw;
+}
+
+#leafCount {
+    border: 2px #3ac16b;
+    right: 3vw;
+    object-fit: contain;
+}
+
+#mail {
+    display: flex;
+    visibility: hidden;
+    object-fit: contain;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    align-items: center;
+    padding: 10px;
+    width: 5vw;
+    height: 3vh;
+    flex-direction: row;
+}
+
+.planetLv {
+    margin: 3vh;
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.04);
+    justify-content: center;
+    border-radius: 20px;
+    top: 10vh;
+}
+
+.planetImg {
+    display: flex;
+    justify-content: center;
+}
+
+#planetImg {
+    height: 60vh;
+    width: 80vw;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.UpBtn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #3ac16b;
+    color: white;
+    border-radius: 20px;
+    height: 60px;
+    text-align: center;
+    margin: 30px;
+    align-items: center;
+}
+
+#missionListTitle {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.missions {
+    display: flex;
+    align-items: flex-start;
+    background-color: lightgray;
+    border-radius: 20px;
+    flex-direction: column;
+    height: 40vh;
+    margin: 2vh;
+}
+
+#missionTab {
+    display: flex;
+    justify-items: start;
+    margin: 2vh;
+    padding: 0;
+}
+
+#smile {
+    display: none;
+    position: absolute;
+}
+
+.planetGuage {
+    background-color: #3ac16b;
+    width: 100%;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #3ac16b;
+    border-radius: 10px; /* Only the left part will be rounded */
+}
+
+/* For Mozilla Firefox */
+progress::-moz-progress-bar {
+    background-color: #3ac16b;
+    border-radius: 10px;
+}
+
+dialog {
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3ac16b;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3ac16b;
+}
+
+.btnList {
+    display: flex;
+}
+
+.btnList button {
+    flex: 1;
+    width: 80%;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+#tree{
+    align-items: center;
+}
+
+.scrollable-content {
+    max-height: 300px; /* 원하는 높이로 설정 */
+    overflow-y: auto;
+}
+
+.btnList {
+    text-align: right;
+}

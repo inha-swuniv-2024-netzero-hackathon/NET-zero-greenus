@@ -10,6 +10,8 @@ import 'package:mime/mime.dart';
 import 'package:path/path.dart';
 import 'package:http_parser/http_parser.dart';
 
+import '../../home/controllers/home_controller.dart';
+
 class MissionUploadController extends BaseController {
   /// upload-ing flag
   RxBool isUploading = RxBool(true);
@@ -36,7 +38,7 @@ class MissionUploadController extends BaseController {
         'POST', Uri.parse('http://43.203.144.204:8080/certification'));
 
     request.fields['userId'] = '1';
-    request.fields['category'] = 'test';
+    request.fields['category'] = mission;
     http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
       'file',
       file.path,
@@ -53,6 +55,7 @@ class MissionUploadController extends BaseController {
     isUploading(false);
 
     Future.delayed(const Duration(seconds: 3)).then((_) {
+      Get.find<HomeController>().onRefresh();
       Get.toNamed(Routes.MISSION_RESULT, arguments: {
         'message': response.statusCode == 200 ? data['message'] : data['suggestion'],
         'is_success' : response.statusCode == 200,

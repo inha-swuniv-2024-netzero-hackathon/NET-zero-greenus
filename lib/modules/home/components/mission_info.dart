@@ -44,7 +44,12 @@ class MissionInfo extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         decoration: BoxDecoration(
             image: missionItem['imageUrl'] != null
-                ? DecorationImage(image: NetworkImage(missionItem['imageUrl']))
+                ? DecorationImage(
+                    image: NetworkImage(
+                      'http://' + missionItem['imageUrl'],
+                    ),
+                    fit: BoxFit.cover,
+                  )
                 : null,
             color: AppColors.darkGrey,
             borderRadius: BorderRadius.circular(15.0)),

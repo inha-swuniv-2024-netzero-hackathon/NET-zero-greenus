@@ -29,15 +29,15 @@ const List<bool> guideImageInfoIsPositive = [
 ];
 
 const List<String> guideImageList = [
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
-  AssetPath.dummy,
+  'assets/icons/correct_1.png',
+  'assets/icons/correct_2.jpg',
+  'assets/icons/correct_3.jpg',
+  'assets/icons/correct_4.jpg',
+  'assets/icons/correct_1.png',
+  'assets/icons/correct_2.jpg',
+  'assets/icons/correct_1.png',
+  'assets/icons/correct_2.jpg',
+  'assets/icons/correct_3.jpg',
 ];
 
 class GuideImageGrid extends StatelessWidget {
@@ -86,4 +86,3 @@ class ConfirmImageInfoOnboarding {
   ConfirmImageInfoOnboarding(
       {required this.selectedImage, required this.isPositive});
 }
-

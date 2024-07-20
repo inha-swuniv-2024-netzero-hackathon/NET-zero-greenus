@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>planet</title>
+    <link rel="stylesheet" href="./planet.css"/>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+<div class="container"> 
+    <div class="planetLv">
+        <progress class="planetGuage" value="0" max="100"></progress>
+    </div>
+    <div class="planetImg">
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player src="https://lottie.host/1443f3df-159b-4a5d-ba34-21e9804a91a7/75BLJxm1BQ.json"
+                          background="transparent" speed="1" style="width: 300px; height: 300px" direction="1"
+                          playMode="normal" loop autoplay></dotlottie-player>
+        <lottie-player id="smile" src="https://lottie.host/cfd10778-2d36-4f64-a75e-c0a47f146dfa/nRr9FZ0xvY.json"
+                       background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1"
+                       mode="normal"></lottie-player>
+    </div>
+    <div class="UpBtn">
+        <img src="assets/tree.png" width="30" height="30" id="tree">
+        <h3 id="upButton">나무 심기</h3>
+    </div>
+    
+    <!--<div class="missions">
+        <div class="missionListTitle">
+            <h3 id="missionTab">내 미션</h3>
+        </div>
+        <div class="missionList">
+        </div>
+    </div>-->
+</div>
+<div class="mailClass">
+    <img src="assets/mail.png" id="mail" alt="mailImg">    
+  </div> 
+<dialog id="myDialog">
+    <h2>나무로 부터 메시지가 도착했어요!</h2>
+    <p>지금 바로 확인해보세요</p>
+    <div class="btnList">
+        <button id="confirmDialogBtn">확인</button>
+    </div>
+</dialog>
+
+<dialog id="treeMail">
+    <h2>나무의 편지</h2>
+    <div class="scrollable-content">
+        <p>ㅁㅁ님에게,
+            안녕하세요! 저는 ㅁㅁ님이 정성껏 심어준 작은 아기나무예요. 아직은 작고 여린 나무지만, ㅁㅁ님의 사랑과 보살핌 덕분에 하루하루 조금씩 자라고 있어요.
+            ㅁㅁ님이 저를 심어준 것은 단순히 한 그루의 나무를 심는 것 이상의 의미가 있어요. 우리는 함께 더 나은 지구를 만들기 위한 작은 발걸음을 내디딘 거예요. 저는 자라면서 이 세상의 공기를 조금 더 맑게 만들고, 당신과 다른 생명들에게 작은 쉼터를 제공할 수 있을 거예요. 우리의 행보는 기후 변화와 환경 파괴를 막기 위한 소중한 노력이에요.
+            비록 아직은 작은 아기나무이지만, 저는 언젠가 큰 나무로 자라서 1년에 5.6kg의 이산화탄소를 흡수하고 ㅁㅁ님에게 그늘과 신선한 공기를 선물할 날을 꿈꾸고 있어요. 저는 우리가 함께 깨끗한 지구를 지키는 데 일조할 수 있다는 걸 알고 있어요. 작은 나무 한 그루가 자라면서 많은 생명들에게 긍정적인 영향을 줄 수 있답니다.
+            ㅁㅁ님의 환경을 위한 행동들로 469.4 kg의 이산화탄소 배출을 줄였어요. 제 친구들 71명과 맞먹는 수치랍니다. (1년 기준, 대중교통 이용시) 제가 자라나는 모습을 보면서 ㅁㅁ님도 기뻐해주길 바라요. 저는 ㅁㅁ님의 기대에 부응하기 위해 최선을 다해 자랄 거예요.
+            ㅁㅁ님이 심어준 작은 나무 한 그루가, 우리의 지구를 더 아름답고 건강하게 만드는 데 큰 역할을 하게 될 날을 고대하며,
+            ㅁㅁ님의 아기나무 드림</p>
+    </div>
+    <div class="btnList">
+        <button id="checkDialogBtn">확인</button>
+    </div>
+</dialog>
+
+<script>
+    if (!customElements.get('lottie-player')) {
+        class LottiePlayer extends HTMLElement {
+            constructor() {
+                super();
+                const shadowRoot = this.attachShadow({mode: 'open'});
+                shadowRoot.innerHTML = `<div>Loading Lottie Animation...</div>`;
+            }
+        }
+        customElements.define('lottie-player', LottiePlayer);
+    }
+</script>
+<script src="./planet.js"></script>
+</body>
+</html>
