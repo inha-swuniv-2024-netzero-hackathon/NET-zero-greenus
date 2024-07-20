@@ -11,4 +11,9 @@ class AssetPath {
   static const String makeupOptionBg = 'assets/background/option_makeup_bg.png';
 
   static const String dummy = 'assets/icons/option_dummy.png';
+
+  static const String uploadCompleteLottie = 'assets/lotties/upload_complete.json';
+
+  static const String success = 'assets/icons/success.png';
+  static const String fail = 'assets/icons/fail.png';
 }

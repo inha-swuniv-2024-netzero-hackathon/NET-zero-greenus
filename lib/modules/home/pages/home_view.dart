@@ -17,7 +17,7 @@ class HomeView extends BaseView<HomeController> {
   PreferredSize? appBar(BuildContext context) {
     return CustomAppBar(
       title: '',
-      leadingWidget: Image.asset(AssetPath.dummy),
+      leadingWidget: Image.asset('assets/icons/logo.png'),
       actions: [
         IconButton(
             onPressed: () {
@@ -33,6 +33,9 @@ class HomeView extends BaseView<HomeController> {
     return GetBuilder(
         init: controller,
         builder: (context) {
+          if (!controller.isBindingComplete) {
+            return Container();
+          }
           return SingleChildScrollView(
             padding:
                 const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
@@ -44,10 +47,13 @@ class HomeView extends BaseView<HomeController> {
                 SavingInfo(
                   isActivateSaving: controller.isActivateSaving,
                   connectSaving: controller.connectSaving,
+                  savingsData: controller.savingsData,
                 ),
                 const SizedBox(height: 15.0),
                 _title('나의 미션'),
-                MissionInfo(),
+                MissionInfo(
+                  missionData: controller.missionData,
+                ),
               ],
             ),
           );

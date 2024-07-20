@@ -39,6 +39,16 @@ dependencies:
   fluttertoast: ^8.2.6
   percent_indicator: ^4.2.3
   photo_manager: ^3.2.2
+  camera: ^0.11.0+1
+  image: ^4.2.0
+  path_provider: ^2.1.3
+  lottie: ^3.1.2
+  http: ^1.2.2
+  path: ^1.9.0
+  mime_type: ^1.0.0
+  mime: ^1.0.5
+  webview_flutter: ^4.8.0
+  flutter_inappwebview: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +76,7 @@ flutter:
   assets:
     - assets/fonts/Pretendard/
     - assets/icons/
+    - assets/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

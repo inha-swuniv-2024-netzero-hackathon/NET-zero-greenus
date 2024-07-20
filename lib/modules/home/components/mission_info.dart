@@ -7,14 +7,19 @@ import 'package:greenus/core/values/asset_paths.dart';
 import '../../../routes/app_pages.dart';
 
 class MissionInfo extends StatelessWidget {
-  const MissionInfo({super.key});
+  final dynamic missionData;
+
+  const MissionInfo({
+    required this.missionData,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 9,
+      itemCount: missionData['missions'].length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         mainAxisSpacing: 15,
@@ -23,20 +28,24 @@ class MissionInfo extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {},
-          child: _missionItem(),
+          child: _missionItem(missionData['missions'][index]),
         );
       },
     );
   }
 
-  Widget _missionItem() {
+  Widget _missionItem(dynamic missionItem) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(Routes.MISSION_GUIDE, arguments: {'title': 'title'});
+        Get.toNamed(Routes.MISSION_GUIDE,
+            arguments: {'title': missionItem['title']});
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         decoration: BoxDecoration(
+            image: missionItem['imageUrl'] != null
+                ? DecorationImage(image: NetworkImage(missionItem['imageUrl']))
+                : null,
             color: AppColors.darkGrey,
             borderRadius: BorderRadius.circular(15.0)),
         alignment: Alignment.center,
@@ -45,8 +54,8 @@ class MissionInfo extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.asset(
-                  AssetPath.dummy,
+                Image.network(
+                  missionItem['iconUrl'],
                   width: 40,
                 ),
               ],
@@ -55,7 +64,7 @@ class MissionInfo extends StatelessWidget {
               height: 20.0,
             ),
             Text(
-              '쓰레기 줍기',
+              missionItem['title'],
               style: AppTextStyles.med13Style.copyWith(color: AppColors.white),
             ),
           ],

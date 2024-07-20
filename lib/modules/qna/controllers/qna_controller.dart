@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:greenus/core/base/base_controller.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../core/values/asset_paths.dart';
 import '../models/chat_bubble_item_model.dart';
@@ -244,11 +247,28 @@ class QnaController extends BaseController {
     nextOption();
   }
 
-  void submitChat(String value) {
+  Future<String> requestQuestion(String question) async {
+    var url = Uri.parse('http://43.203.144.204:8080/ai/questions');
+    var headers = {'Content-Type': 'application/json'};
+    var body = json.encode({"question": question});
+
+    var response = await http.post(url, headers: headers, body: body);
+
+    print(response.statusCode);
+
+    var data = json.decode(utf8.decode(response.bodyBytes));
+
+    return data['message'];
+  }
+
+  void submitChat(String value) async {
     appendChatBubble(ChatBubbleItemModel(isMe: true, message: value));
-    appendChatBubble(ChatBubbleItemModel(isMe: false, message: '대답'));
     textEditingController.clear();
     isChatEmpty = true;
+
+    var answer = await requestQuestion(value);
+    appendChatBubble(ChatBubbleItemModel(isMe: false, message: answer));
+
 
     // if (currentOptionType == CustomOptionType.email) {
     //   if (_validateEmail(value)) {

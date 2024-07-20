@@ -56,7 +56,9 @@ class MissionGuideView extends BaseView<MissionGuideController> {
               condition: true,
               text: '촬영하기',
               onTap: () {
-                Get.toNamed(Routes.MISSION_CAMERA);
+                Get.toNamed(Routes.MISSION_CAMERA, arguments: {
+                  'title': controller.title,
+                });
               },
             ),
           ],

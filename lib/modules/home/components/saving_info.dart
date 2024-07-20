@@ -12,11 +12,13 @@ import '../../../core/values/asset_paths.dart';
 class SavingInfo extends StatelessWidget {
   final bool isActivateSaving;
   final Function() connectSaving;
+  final dynamic savingsData;
 
   const SavingInfo({
     super.key,
     required this.isActivateSaving,
     required this.connectSaving,
+    required this.savingsData,
   });
 
   @override
@@ -75,11 +77,11 @@ class SavingInfo extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  '그린적금',
+                  savingsData['saving']['savingsName'],
                   style: AppTextStyles.reg12Style,
                 ),
                 Text(
-                  '260,000',
+                  savingsData['saving']['balance'].toString(),
                   style: AppTextStyles.semi18Style,
                 ),
               ],
@@ -89,7 +91,7 @@ class SavingInfo extends StatelessWidget {
         const SizedBox(height: 20),
         interestRate(),
         const SizedBox(height: 20),
-        _ad(),
+        // _ad(),
       ],
     );
   }
@@ -117,7 +119,7 @@ class SavingInfo extends StatelessWidget {
             color: AppColors.defaultColor,
           ),
           child: Text(
-            '연 1.6%',
+            '연 ${savingsData['saving']['interestRate']}%',
             style: AppTextStyles.semi12Style.copyWith(color: Colors.white),
           ),
         ),

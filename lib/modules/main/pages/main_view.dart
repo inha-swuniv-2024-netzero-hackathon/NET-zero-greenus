@@ -62,8 +62,8 @@ class MainView extends GetView<MainController> {
                     label: '홈',
                   ),
                   BottomNavigationBarItem(
-                    icon: bottomNavIconItem(AssetPath.homeOutlined),
-                    activeIcon: bottomNavIconItem(AssetPath.homeOutlined),
+                    icon: bottomNavIconItem('assets/icons/planet.png'),
+                    activeIcon: bottomNavIconItem('assets/icons/planet.png'),
                     label: '플래닛',
                   ),
                 ]),
